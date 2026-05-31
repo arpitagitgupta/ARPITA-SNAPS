@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;800&family=Pacifico&family=Space+Grotesk:wght@400;700&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bubble: "Arial Black", "Fredoka", "Pacifico", sans-serif;
+  --font-editorial: "Cormorant Garamond", "Georgia", serif;
+  --font-pixel: "VT323", monospace;
+  --font-cyber: "Space Grotesk", sans-serif;
+  --font-handwriting: "Pacifico", cursive;
+}
+
+/* Base custom styles styling */
+@layer base {
+  body {
+    overflow-x: hidden;
+    color: #333333;
+    font-family: var(--font-sans);
+    background-color: #FFD1E8;
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  }
+}
+
+/* Y2K Editorial Aesthetic theme classes */
+.y2k-border {
+  border: 3px solid #FFFFFF;
+  box-shadow: 4px 4px 0px rgba(255, 105, 180, 0.3);
+}
+
+.y2k-border-black {
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.chrome-panel {
+  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #c0c0c0 100%);
+  border: 2px solid #ffffff;
+  outline: 1px solid #999999;
+}
+
+.glossy-btn {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.3));
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.glossy-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+.glossy-btn:active {
+  transform: translateY(1px);
+}
+
+.editorial-label {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.bubble-font {
+  font-family: var(--font-bubble);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+/* Custom visual effects */
+.checkered-bg {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%),
+                    linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.4) 75%),
+                    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.4) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.checkered-dark-bg {
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%),
+                    linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%),
+                    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Custom overlay filters */
+.glow-pink {
+  box-shadow: inset 0 0 40px rgba(255, 102, 178, 0.5);
+  background: rgba(255, 102, 178, 0.05);
+}
+
+.glow-lavender {
+  box-shadow: inset 0 0 45px rgba(168, 85, 247, 0.45);
+  background: rgba(168, 85, 247, 0.04);
+}
+
+.overlay-vhs {
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
+}
+
+.overlay-pink {
+  background: rgba(244, 63, 94, 0.12);
+}
+
+.overlay-digicam {
+  background: rgba(34, 197, 94, 0.03);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.overlay-cyan {
+  background: rgba(6, 182, 212, 0.1);
+  box-shadow: inset 0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+.overlay-grain {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0.85;
+}
+
+.overlay-grain::after {
+  content: " ";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.overlay-chrome {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.15) 100%);
+  mix-blend-mode: overlay;
+}
+
+.overlay-rainbow {
+  background: linear-gradient(120deg, rgba(255,0,0,0.08), rgba(255,154,0,0.08), rgba(208,222,33,0.08), rgba(79,220,74,0.08), rgba(63,218,216,0.08), rgba(47,201,226,0.08), rgba(28,127,238,0.08), rgba(95,21,242,0.08), rgba(186,12,248,0.08), rgba(251,7,217,0.08));
+  mix-blend-mode: screen;
+}
+
+/* Animations */
+@keyframes spark-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-15px) rotate(180deg) scale(1.2); opacity: 1; }
+}
+
+@keyframes holographic-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sparkle-floating {
+  animation: spark-float 4s ease-in-out infinite;
+}
+
+.holo-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,192,203,0.3) 25%, rgba(176,224,230,0.3) 50%, rgba(230,230,250,0.3) 75%, rgba(255,255,255,0.7) 100%);
+  background-size: 400% 400%;
+  animation: holographic-shimmer 12s ease infinite;
+}
+
+.holo-gradient-btn {
+  background: linear-gradient(135deg, #ff007f, #7928ca, #0070f3, #7928ca, #ff007f);
+  background-size: 300% 300%;
+  animation: holographic-shimmer 6s linear infinite;
+}
+
+.holo-border {
+  position: relative;
+}
+.holo-border::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(90deg, #ff007f, #a855f7, #3b82f6, #10b981, #f59e0b, #ff007f);
+  background-size: 400% 400%;
+  animation: holographic-shimmer 8s linear infinite;
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff66b2 0%, #a855f7 100%);
+  border-radius: 999px;
+  border: 2px solid white;
+}
+
+/* Polaroid tilt and interactive shadows */
+.polaroid-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.sticker-glow:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 102, 178, 0.8));
+}
+
+/* CRT Overlay lines */
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 3px 100%;
+}
+
+/* Super-cute Custom Y2K Overlays */
+.overlay-purikura {
+  background: radial-gradient(circle, rgba(255,255,255,0) 35%, rgba(255, 182, 193, 0.15) 70%, rgba(218, 112, 214, 0.25) 100%),
+              linear-gradient(135deg, rgba(255, 230, 240, 0.08) 0%, rgba(230, 240, 255, 0.08) 100%);
+  box-shadow: inset 0 0 35px rgba(230, 10, 180, 0.4);
+}
+
+.overlay-purikura::after {
+  content: '★  ★  ★';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-bubble);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 6px rgba(255, 105, 180, 0.9);
+  pointer-events: none;
+}
+
+.overlay-purikura::before {
+  content: '♥ cute ♥';
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: bold;
+  font-size: 11px;
+  text-shadow: 0 0 5px rgba(255, 20, 147, 0.8);
+  pointer-events: none;
+}
+
+.overlay-peach {
+  background: radial-gradient(circle, rgba(235, 100, 120, 0) 40%, rgba(255, 160, 122, 0.15) 75%, rgba(255, 127, 80, 0.3) 100%);
+  box-shadow: inset 0 0 25px rgba(255, 160, 122, 0.4);
+}
+
+.overlay-peach::after {
+  content: '🍑';
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 14px;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.7));
+  opacity: 0.85;
+}
+
+.overlay-bunny {
+  background: radial-gradient(circle, rgba(255,255,255,0) 45%, rgba(224, 255, 255, 0.15) 80%, rgba(255, 240, 245, 0.25) 100%);
+  box-shadow: inset 0 0 30px rgba(186, 85, 211, 0.25);
+}
+
+.overlay-bunny::after {
+  content: '🐰☁️';
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 14px;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
+  opacity: 0.8;
+}
+
+.overlay-lolita {
+  background: radial-gradient(circle, rgba(255,255,255,0) 50%, rgba(255, 105, 180, 0.12) 80%, rgba(255, 20, 147, 0.2) 100%),
+              linear-gradient(0deg, rgba(255,192,203,0.1) 0%, rgba(255,255,255,0) 100%);
+  box-shadow: inset 0 0 45px rgba(255, 182, 193, 0.55);
+}
+
+.overlay-lolita::before {
+  content: '🎀 sweetheart';
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: white;
+  font-family: var(--font-editorial);
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(255, 20, 147, 0.9);
+  pointer-events: none;
+}
+
+/* Premium ribbon custom movements */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(1.5deg); }
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 4.5s ease-in-out infinite;
+}
+
+@keyframes glitter-sparkle {
+  0%, 100% { opacity: 0.9; filter: brightness(1) drop-shadow(0 0 4px rgba(255,102,178,0.5)); }
+  50% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8)) drop-shadow(0 0 15px rgba(255,102,178,0.9)); }
+}
+.animate-glitter {
+  animation: glitter-sparkle 1.8s ease-in-out infinite;
+}
+
+

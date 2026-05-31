@@ -1,0 +1,6 @@
+{
+  "name": "Arpita Snaps ✨",
+  "description": "An ultra-cute, interactive dreamy photobooth called Arpita Snaps ✨ where you can snap photo strips, apply glitter filters, and add aesthetic stickers, captured by Arpita 💖!",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
